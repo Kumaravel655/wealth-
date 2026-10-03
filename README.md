@@ -11,6 +11,21 @@ SplitText, Lenis). Every page stays static HTML, so search engines see exactly w
     npm run build        # writes dist/ — upload everything inside it, including .htaccess
     npm run preview      # serve dist/ at http://localhost:4173
 
+## Deploying
+
+**Static hosting (simplest):** run `npm run build` and upload everything inside `dist/` (including
+`.htaccess`) to `public_html`. No Node.js app is needed.
+
+**Node.js hosting** (Hostinger Node.js web app, cPanel "Setup Node.js App", a VPS):
+
+- Build command: `npm run build` (on cPanel, run it once in the app's terminal after "Run NPM Install")
+- Startup / entry file: `server.cjs`. Do not use `dist` or the app folder. A folder here gives
+  `Sorry, check with the site admin for error: EISDIR`.
+- Start command: `npm start`
+
+`server.cjs` has no dependencies. It serves `dist/` with clean URLs, the 404 page, gzip, and the same
+cache and security headers as `.htaccess`.
+
 ## How content flows
 
 1. Edit content in `../source/` and run the Python build as before (see `../README.md`), then copy the
