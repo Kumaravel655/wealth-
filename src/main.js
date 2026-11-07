@@ -4,7 +4,10 @@ import './styles/motion.css';
 import './styles/theme.css';
 import './legacy/site.js';
 import { initMotion } from './motion/index.js';
+import { initWho } from './who.js';
 
+// Before motion: reveals must only see the card that is showing.
+initWho();
 initMotion();
 
 // The tour is home-page only, so other pages never download it.

@@ -4,7 +4,7 @@ import { gsap } from 'gsap';
 import { deep } from './env.js';
 
 const MAGNETIC = '.btn, .wa-float, .head-call, .tour-btn';
-const TILT = '.pcard, .city-card, .review, .tile, .ind-card';
+const TILT = '.pcard, .city-card, .review, .tile';
 const SPOT = '.pcard, .why-list li, .review, .triage a, .tile, .side-box, .office, .index-list a, .district-card, .tool, .person';
 
 export function initPointer() {

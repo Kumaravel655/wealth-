@@ -4,17 +4,17 @@
    Category colours passed scripts/validate_palette.js (dataviz skill) on #FFF and #102246. */
 
 .cc {
-  color-scheme: light dark;
-  --surface-0: light-dark(#FFFFFF, #0A1630);
-  --surface-1: light-dark(#EFF6FF, #0E1D3D);
-  --surface-2: light-dark(#E3EDFB, #16284F);
+  color-scheme: light;
+  --surface-0: light-dark(#E6F0FE, #0A1630);
+  --surface-1: light-dark(#D9E7FB, #0E1D3D);
+  --surface-2: light-dark(#CBDDF8, #16284F);
   --surface-card: light-dark(#FFFFFF, #102246);
-  --rule: light-dark(#DCE5F2, #22365E);
-  --rule-strong: light-dark(#C2D1E6, #34507F);
+  --rule: light-dark(#CFDDF2, #22365E);
+  --rule-strong: light-dark(#A9C0E2, #34507F);
   --ink-primary: light-dark(#102A56, #F1F5FD);
   --ink-body: light-dark(#344054, #C9D3E5);
   --ink-secondary: light-dark(#475467, #B4C0D6);
-  --ink-muted: light-dark(#5D6B82, #96A6C2);
+  --ink-muted: light-dark(#4F5D75, #96A6C2);
   --accent: light-dark(#175CD3, #2563EB);
   --accent-hover: light-dark(#1249AE, #1D4ED8);
   --accent-wash: light-dark(#EFF6FF, #132A55);

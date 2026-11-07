@@ -16,8 +16,8 @@ export function initSections() {
   photos();
 }
 
-// Photographs: the about prints unveil and then drift apart with the scroll; each industry photo
-// unveils from the top as its card arrives, settling from a slight zoom.
+// Photographs: the about prints unveil and then drift apart with the scroll; each industry and
+// service group photo unveils from the top as its card arrives, settling from a slight zoom.
 function photos() {
   const stack = document.querySelector('.about-media');
   if (stack) {
@@ -31,7 +31,7 @@ function photos() {
     parallax(main.querySelector('img'), main, 6);
     if (deep && over) gsap.to(over, { y: -48, ease: 'none', scrollTrigger: { trigger: stack, start: 'top bottom', end: 'bottom top', scrub: true } });
   }
-  document.querySelectorAll('.ind-photo').forEach((box) => {
+  document.querySelectorAll('.ind-card:not([hidden]) .ind-photo, .svc-lead, .why-fig, .consult-fig').forEach((box) => {
     gsap.timeline({ scrollTrigger: { trigger: box, start: 'top 90%', once: true } })
       .fromTo(box, { clipPath: 'inset(0% 0% 100% 0%)' }, { clipPath: 'inset(0% 0% 0% 0%)', duration: 1.1, ease: EASE.inOut, delay: 0.1 })
       .fromTo(box.querySelector('img'), { scale: 1.25 }, { scale: 1, duration: 1.5, ease: EASE.out, clearProps: 'all' }, 0.1);

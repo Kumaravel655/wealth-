@@ -11,13 +11,6 @@
   --wb-lift: 0 22px 48px -22px oklch(25% 0.09 258 / .38);
   --dur-reveal: 900ms;
 }
-@media (prefers-color-scheme: dark) {
-  :root {
-    --wb-spot-ink: color-mix(in oklch, var(--accent-bright) 11%, transparent);
-    --wb-lift: 0 22px 48px -22px oklch(0% 0 0 / .7);
-  }
-}
-
 /* ------------------------------------------------------------------ page transitions
    Same-origin navigations cross-fade natively where supported; the header and WhatsApp button stay put. */
 @view-transition { navigation: auto; }
@@ -55,7 +48,7 @@
 
 /* Hold the opening frame until the script takes over (wb-ready also arrives on a 2.5s timer as a fallback). */
 .wb-motion:not(.wb-ready) :is(.hero .h1-kicker, .hero .btn-row, .desk, .stripes, .page-hero h1, .page-hero .eyebrow,
-  .page-hero .lead, .page-hero .btn-row, .page-hero .crumbs) { opacity: 0; }
+  .page-hero .lead, .page-hero .btn-row, .page-hero .crumbs, .ph-fig, .hero-photo) { opacity: 0; }
 .wb-motion:not(.wb-ready) .h1-display .w > span { transform: translateY(115%); }
 
 /* ------------------------------------------------------------------ header: hides on the way down, returns on the way up */

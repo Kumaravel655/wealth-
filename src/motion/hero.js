@@ -68,6 +68,10 @@ export function initHero() {
     .from(q('.hero-copy > .btn-row > *'), { y: 24, opacity: 0, duration: DUR.reveal, stagger: 0.08 }, 0.6);
   // The lead paragraph is the mobile LCP element, so it is painted immediately and never animated.
 
+  const photo = q('.hero-photo')[0];
+  if (photo) tl.fromTo(photo, { clipPath: 'inset(100% 0% 0% 0% round 24px)' }, { clipPath: 'inset(0% 0% 0% 0% round 24px)', duration: 1.3, ease: EASE.inOut }, 0.2)
+    .fromTo(photo.querySelector('img'), { scale: 1.25 }, { scale: 1, duration: 1.6 }, 0.2);
+
   // The floating cards arrive once the headline has landed.
   const rating = q('.rating-card')[0];
   tl.from(q('.rating-card, .hero-points > li'), { y: 16, opacity: 0, duration: DUR.slow, stagger: 0.08 }, 0.9);
@@ -87,6 +91,7 @@ export function initHero() {
     [bg, { yPercent: 14 }],
     [stripes, { y: -90 }],
     [q('.hero-copy')[0], { y: -60 }],
+    [photo, { y: -40 }],
     [desk, { y: -120 }],
     [rating, { y: -160 }],
   ]);
@@ -130,6 +135,8 @@ export function initPageHero() {
   const tl = gsap.timeline({ defaults: { ease: EASE.out } });
   if (bg) tl.fromTo(bg, { scale: 1.25 }, { scale: 1.06, duration: 2.6, ease: 'power2.out' }, 0);
   buildStripes(q('.stripes')[0], 0, tl);
+  const fig = q('.ph-fig')[0];
+  if (fig) tl.fromTo(fig, { clipPath: 'inset(100% 0% 0% 0% round 24px)' }, { clipPath: 'inset(0% 0% 0% 0% round 24px)', duration: 1.2, ease: EASE.inOut }, 0.2);
   tl.from(q('.crumbs'), { y: -10, opacity: 0, duration: DUR.slow }, 0.05)
     .from(q('.eyebrow'), { x: -16, opacity: 0, duration: DUR.reveal }, 0.1)
     .from(q('.lead'), { y: 16, opacity: 0, duration: DUR.reveal }, 0.4)

@@ -16,3 +16,7 @@ They are generic stock photos, not pictures of Wealth Bridge staff or clients, a
 | `ind-companies-*.webp` | Industries: companies | https://images.unsplash.com/photo-1765366417030-16d9765d920a |
 
 The small-business card reuses the site's existing `msme-card-*.webp`.
+
+## Illustrations
+
+`public/assets/img/illus/` holds AI-generated illustrations commissioned for this site, not photographs. Each is named after the page it sits on (`home-*` for the home page; originals are in `illus-src/`, which is not committed).

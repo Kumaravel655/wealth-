@@ -129,10 +129,9 @@ export default function App() {
   const clearAll = () => { setMonth(null); setCat('All'); setSearch(''); setStatus(null); };
 
   const toggleTheme = () => {
-    const dark = theme ? theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
-    setTheme(dark ? 'light' : 'dark');
+    setTheme(theme === 'dark' ? 'light' : 'dark');
   };
-  const isDark = theme === 'dark' || (!theme && typeof matchMedia === 'function' && matchMedia('(prefers-color-scheme: dark)').matches);
+  const isDark = theme === 'dark';
 
   const removeCustom = (r) => {
     if (window.confirm(`Remove "${r.n}"? This cannot be undone.`)) setCustom(custom.filter((x) => x.id !== r.id));

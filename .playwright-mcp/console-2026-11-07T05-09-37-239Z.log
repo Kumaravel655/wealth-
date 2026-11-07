@@ -6,3 +6,9 @@
 [  467001ms] [WARNING] y not eligible for reset. Try splitting into individual properties @ http://localhost:5175/node_modules/.vite/deps/gsap.js?v=7f7ce957:89
 [  498008ms] Transition was aborted because of invalid state. ViewTransition opt-in disabled
 [  498083ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:5175/node_modules/.vite/deps/react-dom_client.js?v=7f7ce957:15997
+[ 1846999ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:5175/node_modules/.vite/deps/react-dom_client.js?v=7f7ce957:15997
+[ 3872975ms] [LOG] [vite] server connection lost. Polling for restart... @ http://localhost:5175/@vite/client:1081
+[ 8507312ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:5175/node_modules/.vite/deps/react-dom_client.js?v=7f7ce957:15997
+[10959306ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:5175/node_modules/.vite/deps/react-dom_client.js?v=7f7ce957:15997
+[11070296ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:5175/node_modules/.vite/deps/react-dom_client.js?v=7f7ce957:15997
+[11584553ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:5175/node_modules/.vite/deps/react-dom_client.js?v=7f7ce957:15997
