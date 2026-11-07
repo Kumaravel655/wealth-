@@ -55,7 +55,7 @@ function items() {
   ScrollTrigger.batch(list, {
     start: 'top 92%', once: true, interval: 0.08,
     onEnter: (batch) => gsap.to(batch, {
-      opacity: 1, y: 0, duration: DUR.reveal, ease: EASE.out, stagger: STAGGER,
+      opacity: 1, y: 0, duration: DUR.reveal, ease: EASE.out, stagger: STAGGER, overwrite: false, // see pointer.js FOLLOW
       clearProps: 'transform,opacity',
     }),
   });

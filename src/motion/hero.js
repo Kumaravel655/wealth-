@@ -65,7 +65,8 @@ export function initHero() {
       yPercent: 115, rotate: 5, transformOrigin: '0% 100%', duration: 1.1, stagger: STAGGER,
     }, 0.22)
     .add(() => em && em.classList.add('sheen'), 1.1)
-    .from(q('.hero-copy > .btn-row > *'), { y: 24, opacity: 0, duration: DUR.reveal, stagger: 0.08 }, 0.6);
+    // overwrite: false — the magnetic hover (pointer.js) tweens the same y; neither may kill the other.
+    .from(q('.hero-copy > .btn-row > *'), { y: 24, opacity: 0, duration: DUR.reveal, stagger: 0.08, overwrite: false }, 0.6);
   // The lead paragraph is the mobile LCP element, so it is painted immediately and never animated.
 
   const photo = q('.hero-photo')[0];
@@ -140,7 +141,7 @@ export function initPageHero() {
   tl.from(q('.crumbs'), { y: -10, opacity: 0, duration: DUR.slow }, 0.05)
     .from(q('.eyebrow'), { x: -16, opacity: 0, duration: DUR.reveal }, 0.1)
     .from(q('.lead'), { y: 16, opacity: 0, duration: DUR.reveal }, 0.4)
-    .from(q('.btn-row > *'), { y: 22, opacity: 0, duration: DUR.reveal, stagger: 0.08 }, 0.55);
+    .from(q('.btn-row > *'), { y: 22, opacity: 0, duration: DUR.reveal, stagger: 0.08, overwrite: false }, 0.55);
 
   if (h1) {
     // Fonts can change line breaks, so SplitText re-splits on load/resize and restores the returned

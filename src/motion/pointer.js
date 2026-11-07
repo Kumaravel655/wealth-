@@ -14,9 +14,13 @@ export function initPointer() {
   document.querySelectorAll(SPOT).forEach(spot);
 }
 
+// The global `overwrite: 'auto'` would let these followers and the intro/scroll reveals (which tween the
+// same x/y) kill each other: a button froze 24px low, or stopped following the pointer for good.
+const FOLLOW = { overwrite: false };
+
 function magnetic(el) {
-  const x = gsap.quickTo(el, 'x', { duration: 0.6, ease: 'elastic.out(1, 0.45)' });
-  const y = gsap.quickTo(el, 'y', { duration: 0.6, ease: 'elastic.out(1, 0.45)' });
+  const x = gsap.quickTo(el, 'x', { ...FOLLOW, duration: 0.6, ease: 'elastic.out(1, 0.45)' });
+  const y = gsap.quickTo(el, 'y', { ...FOLLOW, duration: 0.6, ease: 'elastic.out(1, 0.45)' });
   el.addEventListener('pointermove', (e) => {
     const r = el.getBoundingClientRect();
     x((e.clientX - r.left - r.width / 2) * 0.28);
@@ -26,11 +30,11 @@ function magnetic(el) {
 }
 
 function tilt(el) {
-  const rx = gsap.quickTo(el, 'rotationX', { duration: 0.7, ease: 'power3.out' });
-  const ry = gsap.quickTo(el, 'rotationY', { duration: 0.7, ease: 'power3.out' });
+  const rx = gsap.quickTo(el, 'rotationX', { ...FOLLOW, duration: 0.7, ease: 'power3.out' });
+  const ry = gsap.quickTo(el, 'rotationY', { ...FOLLOW, duration: 0.7, ease: 'power3.out' });
   // GSAP owns this element's transform once it tilts (it writes `translate: none`), so the hover lift
   // that CSS gives untilted cards happens here instead.
-  const lift = gsap.quickTo(el, 'y', { duration: 0.6, ease: 'power3.out' });
+  const lift = gsap.quickTo(el, 'y', { ...FOLLOW, duration: 0.6, ease: 'power3.out' });
   // Set on entry: the scroll reveal clears inline transforms when it finishes.
   el.addEventListener('pointerenter', () => { gsap.set(el, { transformPerspective: 1100 }); lift(-4); });
   el.addEventListener('pointermove', (e) => {

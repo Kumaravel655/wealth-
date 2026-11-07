@@ -12,3 +12,7 @@
 [10959306ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:5175/node_modules/.vite/deps/react-dom_client.js?v=7f7ce957:15997
 [11070296ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:5175/node_modules/.vite/deps/react-dom_client.js?v=7f7ce957:15997
 [11584553ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:5175/node_modules/.vite/deps/react-dom_client.js?v=7f7ce957:15997
+[13361992ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:5175/node_modules/.vite/deps/react-dom_client.js?v=7f7ce957:15997
+[13363766ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:5175/node_modules/.vite/deps/react-dom_client.js?v=7f7ce957:15997
+[13365057ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:5175/node_modules/.vite/deps/react-dom_client.js?v=7f7ce957:15997
+[16860476ms] [LOG] [vite] server connection lost. Polling for restart... @ http://localhost:5175/@vite/client:1081
