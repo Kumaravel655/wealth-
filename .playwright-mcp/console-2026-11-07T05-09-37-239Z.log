@@ -1,0 +1,8 @@
+[  449250ms] Transition was aborted because of invalid state. ViewTransition opt-in disabled
+[  457692ms] [WARNING] THREE.WebGLShadowMap: PCFSoftShadowMap has been removed. Using PCFShadowMap instead. @ http://localhost:5175/node_modules/.vite/deps/three.js?v=7f7ce957:1740
+[  466492ms] [WARNING] y not eligible for reset. Try splitting into individual properties @ http://localhost:5175/node_modules/.vite/deps/gsap.js?v=7f7ce957:89
+[  466671ms] [WARNING] y not eligible for reset. Try splitting into individual properties @ http://localhost:5175/node_modules/.vite/deps/gsap.js?v=7f7ce957:89
+[  466686ms] [WARNING] y not eligible for reset. Try splitting into individual properties @ http://localhost:5175/node_modules/.vite/deps/gsap.js?v=7f7ce957:89
+[  467001ms] [WARNING] y not eligible for reset. Try splitting into individual properties @ http://localhost:5175/node_modules/.vite/deps/gsap.js?v=7f7ce957:89
+[  498008ms] Transition was aborted because of invalid state. ViewTransition opt-in disabled
+[  498083ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:5175/node_modules/.vite/deps/react-dom_client.js?v=7f7ce957:15997

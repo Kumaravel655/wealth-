@@ -50,6 +50,17 @@ cache and security headers as `.htaccess`.
 `src/styles/base.css`, `src/legacy/site.js` and `src/legacy/tools.js` are copied in by the sync. Change
 those in `../source/`, not here.
 
+## Compliance calendar
+
+`/compliance-calendar/` is a React island (`src/calendar.jsx`, `src/calendar/`, `src/styles/calendar.css`) inside the
+static site. React loads on this page only; the PDF and Excel libraries load on first use.
+
+- **Due dates live in `src/calendar/data.js`.** Monthly rules are generated and one-off dates are listed in `ONE_OFF`.
+  When a date is extended, edit the row, update `FY.checked`, and run `npm run check`, which guards the dates and
+  counts that must not regress.
+- **Nothing updates itself.** New CBDT, CBIC or MCA notifications need a manual edit, and FY 2027-28 needs new rows.
+- This page is hand-written, so it has no source in `../website`: `npm run sync` deletes it. Keep a copy before syncing.
+
 ## Accessibility and performance
 
 - `prefers-reduced-motion: reduce` turns the whole layer off. Pages render exactly as the original site.

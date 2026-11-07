@@ -1,0 +1,76 @@
+================================================================================
+WEALTH BRIDGE - TAX & BUSINESS CONSULTANTS
+PAGE: INCOME TAX, GST & EMI CALCULATORS | WEALTH BRIDGE
+================================================================================
+
+[ METADATA & PAGE DETAILS ]
+  * Page Title:        Income Tax, GST & EMI Calculators | Wealth Bridge
+  * Category:          Tools & Reference
+  * Canonical URL:     https://thewealthbridge.in/tools/
+  * Meta Description:  Free income tax (new regime), GST and loan EMI calculators from Wealth Bridge, tax and business consultants in Vellore and Chennai.
+  * Geographic Scope:  Vellore; Chennai (IN-TN)
+  * Structured Schema: BreadcrumbList, Organization, Person, ProfessionalService, WebPage, WebSite
+
+Navigation Path: Home > Tax calculators
+
+[ UPCOMING STATUTORY DUE DATES TRACKED ]
+  * 7th Monthly TDS & TCS deposit
+  * 11th Monthly GSTR-1
+  * 15th Monthly PF & ESI contributions
+  * 20th Monthly GSTR-3B
+  * 31 July Income tax return
+
+--------------------------------------------------------------------------------
+
+Tax calculators
+
+Quick estimates for income tax, GST and loan EMIs. Results are indicative only; talk to us before acting on them.
+
+--------------------------------------------------------------------------------
+
+[ INTERACTIVE FINANCIAL CALCULATORS ]
+
+--- CALCULATOR: INCOME TAX (NEW REGIME) ---
+Note: For Tax Year 2026-27 and FY 2025-26, resident individuals below 60. Excludes surcharge and special-rate income.
+Configured Inputs & Default Values:
+  * Salary or pension income (₹): 1500000
+  * Other income (₹): 0
+
+--- CALCULATOR: GST ---
+Configured Inputs & Default Values:
+  * Amount (₹): 10000
+  * GST rate: 18%
+  * Before GST: ex
+  * Including GST: in
+  * Within Tamil Nadu (CGST + SGST): intra
+  * Outside Tamil Nadu (IGST): inter
+  * The amount is: Before GST / Including GST
+  * Supply: Within Tamil Nadu (CGST + SGST) / Outside Tamil Nadu (IGST)
+
+--- CALCULATOR: LOAN EMI ---
+Configured Inputs & Default Values:
+  * Loan amount (₹): 1000000
+  * Interest rate (% per year): 10
+  * Tenure (months): 60
+
+[ CALL TO ACTION & CONSULTATION ]
+Prompt: Have a notice, a deadline or a new project?
+Response: Talk to our team. Share your requirement and we will respond within one working day.
+  * Call 86677 53901: tel:+918667753901
+  * WhatsApp us: https://wa.me/918667753901
+
+================================================================================
+FIRM INFORMATION, PRACTICE DETAILS & STATUTORY NOTICE
+================================================================================
+Firm Name:        Wealth Bridge Tax & Business Consultants
+Proprietor:       S. Dineshbabu (Founder & Principal Advisor, practising since 2007)
+GSTIN:            33ATFPD1293G1Z2
+Operating Hours:  Monday to Saturday, 9:30 am to 6:30 pm
+Head Office:      Union Bank Upstairs, No. 23, 8th East Main Road, Gandhinagar, Katpadi, Vellore 632006
+Chennai Office:   No. 23/1, 1st Floor, Alagiri Nagar 5th Street, 100 Feet Road, Vadapalani, Chennai 600026
+Direct Helpline:  +91 86677 53901 | Vellore Landline: 0416 224 1199
+Official Email:   infowealthbridge@gmail.com
+Live Page URL:    https://thewealthbridge.in/tools/
+Legal Terms:      Attest functions reserved for specified licensed professionals are not undertaken.
+================================================================================
+

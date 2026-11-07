@@ -68,39 +68,50 @@ export function initHero() {
     .from(q('.hero-copy > .btn-row > *'), { y: 24, opacity: 0, duration: DUR.reveal, stagger: 0.08 }, 0.6);
   // The lead paragraph is the mobile LCP element, so it is painted immediately and never animated.
 
+  // The floating cards arrive once the headline has landed.
+  const rating = q('.rating-card')[0];
+  tl.from(q('.rating-card, .hero-points > li'), { y: 16, opacity: 0, duration: DUR.slow, stagger: 0.08 }, 0.9);
+
   if (desk) {
     tl.from(desk, {
-      y: 90, rotationX: 16, opacity: 0, transformPerspective: 1400, transformOrigin: '50% 100%',
-      duration: 1.5,
-    }, 0.35)
+      y: 40, opacity: 0, transformPerspective: 1400, transformOrigin: '50% 100%',
+      duration: 1.3,
+    }, 0.5)
       .from(desk.querySelectorAll('.desk-head > *'), { y: 12, opacity: 0, duration: DUR.slow, stagger: 0.08 }, 0.75)
       .from(desk.querySelectorAll('.due'), { x: 34, opacity: 0, duration: DUR.reveal, stagger: STAGGER }, 0.85)
       .from(desk.querySelectorAll('.desk-note, .desk-cta'), { y: 18, opacity: 0, duration: DUR.slow, stagger: 0.1 }, 1.25);
   }
 
+  // Scroll depth: the copy and cards leave at different speeds.
   depth(hero, [
     [bg, { yPercent: 14 }],
     [stripes, { y: -90 }],
     [q('.hero-copy')[0], { y: -60 }],
     [desk, { y: -120 }],
+    [rating, { y: -160 }],
   ]);
   addGlow(hero);
 
-  // Pointer: the stripes and the desk respond to the mouse once the intro has settled.
+  // Pointer: the scene splits into layers once the intro has settled; the cards travel furthest.
+  // Percent offsets keep these separate from the pixel `y` the scroll depth writes.
   if (!deep) return;
   tl.eventCallback('onComplete', () => {
-    const sx = stripes && gsap.quickTo(stripes, 'x', { duration: 1.2, ease: 'power3.out' });
-    const sy = stripes && gsap.quickTo(stripes, 'yPercent', { duration: 1.2, ease: 'power3.out' });
+    const layer = (el, k) => el && {
+      x: gsap.quickTo(el, 'xPercent', { duration: 1.1, ease: 'power3.out' }),
+      y: gsap.quickTo(el, 'yPercent', { duration: 1.1, ease: 'power3.out' }), k,
+    };
+    const layers = [layer(desk, 5), layer(rating, 12), layer(stripes, -8)].filter(Boolean);
     const rx = desk && gsap.quickTo(desk, 'rotationX', { duration: 0.8, ease: 'power3.out' });
     const ry = desk && gsap.quickTo(desk, 'rotationY', { duration: 0.8, ease: 'power3.out' });
+    const move = (nx, ny) => {
+      layers.forEach((l) => { l.x(nx * l.k); l.y(ny * l.k); });
+      if (rx) { rx(ny * -5); ry(nx * 6); }
+    };
     hero.addEventListener('pointermove', (e) => {
       const r = hero.getBoundingClientRect();
-      const nx = (e.clientX - r.left) / r.width - 0.5;
-      const ny = (e.clientY - r.top) / r.height - 0.5;
-      if (sx) { sx(nx * -40); sy(ny * -6); }
-      if (rx) { rx(ny * -5); ry(nx * 6); }
+      move((e.clientX - r.left) / r.width - 0.5, (e.clientY - r.top) / r.height - 0.5);
     });
-    hero.addEventListener('pointerleave', () => { if (sx) { sx(0); sy(0); } if (rx) { rx(0); ry(0); } });
+    hero.addEventListener('pointerleave', () => move(0, 0));
     if (desk) desk.addEventListener('pointermove', (e) => {
       const r = desk.getBoundingClientRect();
       desk.style.setProperty('--gx', `${((e.clientX - r.left) / r.width) * 100}%`);

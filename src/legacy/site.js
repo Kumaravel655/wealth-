@@ -75,7 +75,7 @@
 
   var list = document.querySelector('[data-due]');
   if (list) {
-    var items = dueEvents(5);
+    var items = dueEvents(+list.dataset.due || 5);
     if (items.length) {
       var ring = '<svg viewBox="0 0 44 44" aria-hidden="true"><circle class="ring-bg" cx="22" cy="22" r="19"/><circle class="ring-fg" cx="22" cy="22" r="19" pathLength="100"/></svg>';
       list.innerHTML = items.map(function (x) {
@@ -310,15 +310,20 @@
   if (form) {
     form.addEventListener('submit', function (ev) {
       ev.preventDefault();
+      var el = form.elements;
+      // Honeypot: people never see this field, form-filling bots do.
+      if (el.website && el.website.value) return;
       var err = document.getElementById('f-err');
-      var name = form.name.value.trim();
-      var phone = form.phone.value.trim();
+      var name = el.name.value.trim();
+      var phone = el.phone.value.trim();
+      var email = el.email ? el.email.value.trim() : '';
       var consent = document.getElementById('f-consent').checked;
       var msg = '', field = null;
-      if (!name) { msg = 'Enter your name.'; field = form.name; }
-      else if (!/^[+0-9 ()-]{8,}$/.test(phone)) { msg = 'Enter a valid phone number.'; field = form.phone; }
+      if (!name) { msg = 'Enter your name.'; field = el.name; }
+      else if (!/^[+0-9 ()-]{8,}$/.test(phone)) { msg = 'Enter a valid phone number.'; field = el.phone; }
+      else if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { msg = 'Enter a valid email address, or leave it empty.'; field = el.email; }
       else if (!consent) { msg = 'Tick the consent box so we can contact you.'; field = document.getElementById('f-consent'); }
-      [form.name, form.phone].forEach(function (f) { f.removeAttribute('aria-invalid'); });
+      [el.name, el.phone, el.email].forEach(function (f) { if (f) f.removeAttribute('aria-invalid'); });
       if (msg) {
         err.textContent = msg; err.hidden = false;
         if (field && field.type !== 'checkbox') field.setAttribute('aria-invalid', 'true');
@@ -328,9 +333,11 @@
       err.hidden = true;
       var text = 'Hello Wealth Bridge,\n' +
         'Name: ' + name + '\nPhone: ' + phone +
-        '\nNearest office: ' + form.city.value +
-        '\nService: ' + form.service.value +
-        (form.message.value.trim() ? '\nDetails: ' + form.message.value.trim() : '');
+        (email ? '\nEmail: ' + email : '') +
+        (el.city ? '\nNearest office: ' + el.city.value : '') +
+        '\nService: ' + el.service.value +
+        (el.method ? '\nPreferred consultation: ' + el.method.value : '') +
+        (el.message && el.message.value.trim() ? '\nDetails: ' + el.message.value.trim() : '');
       window.open('https://wa.me/918667753901?text=' + encodeURIComponent(text), '_blank', 'noopener');
     });
   }

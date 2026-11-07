@@ -4,7 +4,7 @@ import { gsap } from 'gsap';
 import { deep } from './env.js';
 
 const MAGNETIC = '.btn, .wa-float, .head-call, .tour-btn';
-const TILT = '.pcard, .city-card, .review, .tile';
+const TILT = '.pcard, .city-card, .review, .tile, .ind-card';
 const SPOT = '.pcard, .why-list li, .review, .triage a, .tile, .side-box, .office, .index-list a, .district-card, .tool, .person';
 
 export function initPointer() {
@@ -28,14 +28,17 @@ function magnetic(el) {
 function tilt(el) {
   const rx = gsap.quickTo(el, 'rotationX', { duration: 0.7, ease: 'power3.out' });
   const ry = gsap.quickTo(el, 'rotationY', { duration: 0.7, ease: 'power3.out' });
+  // GSAP owns this element's transform once it tilts (it writes `translate: none`), so the hover lift
+  // that CSS gives untilted cards happens here instead.
+  const lift = gsap.quickTo(el, 'y', { duration: 0.6, ease: 'power3.out' });
   // Set on entry: the scroll reveal clears inline transforms when it finishes.
-  el.addEventListener('pointerenter', () => gsap.set(el, { transformPerspective: 1100 }));
+  el.addEventListener('pointerenter', () => { gsap.set(el, { transformPerspective: 1100 }); lift(-4); });
   el.addEventListener('pointermove', (e) => {
     const r = el.getBoundingClientRect();
     rx(((e.clientY - r.top) / r.height - 0.5) * -4);
     ry(((e.clientX - r.left) / r.width - 0.5) * 5);
   });
-  el.addEventListener('pointerleave', () => { rx(0); ry(0); });
+  el.addEventListener('pointerleave', () => { rx(0); ry(0); lift(0); });
 }
 
 function spot(el) {

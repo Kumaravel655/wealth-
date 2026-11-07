@@ -13,6 +13,29 @@ export function initSections() {
   faq();
   cta();
   menus();
+  photos();
+}
+
+// Photographs: the about prints unveil and then drift apart with the scroll; each industry photo
+// unveils from the top as its card arrives, settling from a slight zoom.
+function photos() {
+  const stack = document.querySelector('.about-media');
+  if (stack) {
+    const main = stack.querySelector('.am-main');
+    const over = stack.querySelector('.am-over');
+    gsap.timeline({ scrollTrigger: { trigger: stack, start: 'top 85%', once: true } })
+      .fromTo(main, { clipPath: 'inset(100% 0% 0% 0% round 24px)' }, { clipPath: 'inset(0% 0% 0% 0% round 24px)', duration: 1.3, ease: EASE.inOut })
+      .fromTo(main.querySelector('img'), { scale: 1.3 }, { scale: deep ? 1.14 : 1, duration: 1.6, ease: EASE.out }, 0)
+      .from(over, { y: 60, opacity: 0, rotate: -3, duration: 1.1, ease: EASE.out }, 0.55)
+      .from(stack.querySelector('.since-card'), { y: 30, opacity: 0, duration: DUR.reveal, ease: EASE.out }, 0.8);
+    parallax(main.querySelector('img'), main, 6);
+    if (deep && over) gsap.to(over, { y: -48, ease: 'none', scrollTrigger: { trigger: stack, start: 'top bottom', end: 'bottom top', scrub: true } });
+  }
+  document.querySelectorAll('.ind-photo').forEach((box) => {
+    gsap.timeline({ scrollTrigger: { trigger: box, start: 'top 90%', once: true } })
+      .fromTo(box, { clipPath: 'inset(0% 0% 100% 0%)' }, { clipPath: 'inset(0% 0% 0% 0%)', duration: 1.1, ease: EASE.inOut, delay: 0.1 })
+      .fromTo(box.querySelector('img'), { scale: 1.25 }, { scale: 1, duration: 1.5, ease: EASE.out, clearProps: 'all' }, 0.1);
+  });
 }
 
 // "What do you need help with?": the grid wipes open left to right, then each option slides in.
